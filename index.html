@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,426 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <style>
+    :root {
+      --bg-primary: #0a0c14;
+      --bg-card: #131722;
+      --bg-card-hover: #1a2030;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-primary: #8b5cf6;
+      --accent-secondary: #06b6d4;
+      --gradient: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Site Header */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(10, 12, 20, 0.88);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+
+    .header-container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+
+    .logo span {
+      color: var(--accent-primary);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-secondary);
+    }
+
+    /* Layout */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    section {
+      padding: 5rem 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-tag {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: var(--accent-secondary);
+      letter-spacing: 1.5px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(2.4rem, 6vw, 4rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      color: var(--text-main);
+    }
+
+    h2 {
+      font-size: clamp(1.7rem, 4vw, 2.3rem);
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--text-main);
+    }
+
+    .gradient-text {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 9rem 0 5rem;
+      border-top: none;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.45rem 1rem;
+      background: rgba(139, 92, 246, 0.12);
+      border: 1px solid rgba(139, 92, 246, 0.35);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #c4b5fd;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge span {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-secondary);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--accent-secondary);
+      display: inline-block;
+    }
+
+    .hero-desc {
+      max-width: 650px;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.85rem;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+
+    .btn.primary {
+      background: var(--gradient);
+      color: #fff;
+    }
+
+    .btn.primary:hover {
+      transform: translateY(-2px);
+      opacity: 0.92;
+    }
+
+    /* Accordion Styles */
+    .accordion-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      margin-bottom: 1.25rem;
+      overflow: hidden;
+      transition: border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .accordion-card:hover {
+      border-color: rgba(139, 92, 246, 0.4);
+    }
+
+    .accordion-header {
+      padding: 1.5rem 1.75rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .accordion-header h3 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .role-company {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-top: 0.25rem;
+    }
+
+    .arrow {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      transition: transform 0.35s ease, color 0.3s;
+    }
+
+    .accordion-card.active .arrow {
+      transform: rotate(180deg);
+      color: var(--accent-secondary);
+    }
+
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+      padding: 0 1.75rem;
+    }
+
+    .accordion-card.active .accordion-content {
+      max-height: 1200px;
+      opacity: 1;
+      padding: 0 1.75rem 1.75rem 1.75rem;
+    }
+
+    .exp-list, .project-list {
+      list-style: none;
+      margin-top: 0.5rem;
+    }
+
+    .exp-list li, .project-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.75rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .exp-list li strong, .project-list li strong {
+      color: var(--text-main);
+    }
+
+    .exp-list li::before, .project-list li::before {
+      content: "▹";
+      position: absolute;
+      left: 0;
+      color: var(--accent-primary);
+      font-weight: bold;
+    }
+
+    /* Projects */
+    .project-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .project-card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.5rem;
+      color: var(--text-main);
+    }
+
+    .project-desc {
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    .tech-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+
+    .tech-tags span {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      padding: 0.35rem 0.8rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      color: #cbd5e1;
+    }
+
+    .project-note {
+      margin-top: 1.25rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    /* Education */
+    .edu-card {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 2rem 1.75rem;
+      margin-top: 1.5rem;
+    }
+
+    .edu-badge {
+      background: rgba(139, 92, 246, 0.15);
+      border: 1px solid rgba(139, 92, 246, 0.4);
+      color: #c4b5fd;
+      font-weight: 800;
+      font-size: 1.1rem;
+      padding: 0.75rem 1.2rem;
+      border-radius: 12px;
+    }
+
+    .edu-institution {
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .edu-year {
+      display: inline-block;
+      font-size: 0.85rem;
+      color: var(--accent-secondary);
+      font-weight: 600;
+      margin-top: 0.4rem;
+    }
+
+    /* Contact */
+    .contact-section {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .contact-sub {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-desc {
+      max-width: 520px;
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+    }
+
+    .contact-info {
+      margin-top: 2rem;
+      display: flex;
+      gap: 2rem;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .contact-info a {
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-info a:hover {
+      color: var(--accent-secondary);
+    }
+
+    /* Footer */
+    .site-footer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .back-top {
+      color: var(--text-muted);
+      text-decoration: none;
+    }
+
+    .back-top:hover {
+      color: var(--text-main);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .header-container { padding: 1rem 1.5rem; }
+      .hero-section { padding: 7rem 0 3.5rem; }
+      .contact-info { flex-direction: column; gap: 0.5rem; }
+      .site-footer { flex-direction: column; gap: 1rem; text-align: center; }
+    }
+  </style>
 </head>
 <body>
 
@@ -30,129 +449,4 @@
       <div class="badge"><span></span> AVAILABLE FOR QA / SDET ROLES</div>
       <h1>Hi, I'm <span class="gradient-text">Subham Behera</span></h1>
       <h2>QA Automation Engineer</h2>
-      <p class="hero-desc">Specialized in building robust test automation frameworks, API validation suites, and continuous testing pipelines for modern web applications.</p>
-      <div class="btn-group">
-        <a href="#contact" class="btn primary">Get in touch ↗</a>
-      </div>
-    </section>
-
-    <!-- Experience Section (Accordion) -->
-    <section id="experience" class="accordion-section">
-      <div class="section-tag">01 / WORK EXPERIENCE</div>
-      <h2>Hands-on Industry Impact</h2>
-
-      <!-- Accordion Item 1 (Auto-opened by script.js) -->
-      <div id="expAccordion" class="accordion-card">
-        <div class="accordion-header" onclick="toggleAccordion('expAccordion')">
-          <div>
-            <h3>Senior QA Automation Engineer</h3>
-            <p class="role-company">Quality Engineering & Framework Architecture</p>
-          </div>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="accordion-content">
-          <ul class="exp-list">
-            <li>Architected scalable hybrid & BDD test automation suites utilizing <strong>Java, Selenium, Cucumber,</strong> and <strong>TestNG</strong>.</li>
-            <li>Implemented automated REST API validation layers with <strong>Postman</strong> and <strong>REST Assured</strong>, cutting regression cycle times significantly.</li>
-            <li>Integrated automated test triggers into <strong>CI/CD build pipelines (Jenkins / GitHub Actions)</strong> for early defect discovery.</li>
-            <li>Collaborated closely with cross-functional development teams to define test plans, acceptance criteria, and defect tracking metrics.</li>
-          </ul>
-          <div class="tech-tags">
-            <span>Selenium</span>
-            <span>Java</span>
-            <span>Cucumber</span>
-            <span>TestNG</span>
-            <span>Postman</span>
-            <span>REST Assured</span>
-            <span>Git</span>
-            <span>CI/CD</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Accordion Item 2 -->
-      <div id="qaPracticesAccordion" class="accordion-card">
-        <div class="accordion-header" onclick="toggleAccordion('qaPracticesAccordion')">
-          <div>
-            <h3>Testing Methodologies & Tooling</h3>
-            <p class="role-company">Functional, API & Automation Coverage</p>
-          </div>
-          <span class="arrow">▼</span>
-        </div>
-        <div class="accordion-content">
-          <ul class="exp-list">
-            <li>End-to-end regression, smoke, and integration test strategy design.</li>
-            <li>API schema validation, response assertion, and contract verification via Swagger & Postman collections.</li>
-            <li>Agile sprint participation, sprint grooming, and JIRA defect life-cycle management.</li>
-          </ul>
-          <div class="tech-tags">
-            <span>Agile/Scrum</span>
-            <span>JIRA</span>
-            <span>Swagger</span>
-            <span>Regression Testing</span>
-            <span>Defect Tracking</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects-section">
-      <div class="section-tag">02 / FEATURED PROJECTS</div>
-      <h2>Automation Suites & Frameworks</h2>
-      <div class="project-card">
-        <h3>E-Commerce Core Automation Suite</h3>
-        <p class="project-desc">A complete end-to-end regression automation suite simulating critical user checkout workflows, catalog browsing, and payment gateway responses.</p>
-        <ul class="project-list">
-          <li>Page Object Model (POM) architecture implemented with explicit waits and thread-safe driver management.</li>
-          <li>Data-driven test executions powered by Apache POI and TestNG parameterization.</li>
-          <li>Rich HTML regression execution reports with automatic screenshot capture on failure.</li>
-        </ul>
-        <div class="tech-tags">
-          <span>Java</span>
-          <span>Selenium WebDriver</span>
-          <span>TestNG</span>
-          <span>Maven</span>
-          <span>ExtentReports</span>
-        </div>
-      </div>
-      <p class="project-note">* Client systems and repositories may be private. Detailed test plans, sanitised artifacts, and test logs can be shared upon request.</p>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education-section">
-      <div class="section-tag">03 / EDUCATION</div>
-      <div class="edu-card">
-        <div class="edu-badge">B.Tech</div>
-        <div>
-          <h3>Bachelor of Technology</h3>
-          <p class="edu-institution">Biju Patnaik University of Technology · Odisha</p>
-          <span class="edu-year">Graduated: 2017</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact-section">
-      <div class="section-tag">04 / CONTACT</div>
-      <p class="contact-sub">HAVE A ROLE OR PROJECT IN MIND?</p>
-      <h2>Let's make quality<br><span class="gradient-text">part of the process.</span></h2>
-      <p class="contact-desc">I'm happy to connect about QA automation, SDET engineering, and test strategy opportunities.</p>
-      <a href="mailto:beherasubham5432@gmail.com" class="btn primary contact-btn">Email me <span>↗</span></a>
-      <div class="contact-info">
-        <a href="mailto:beherasubham5432@gmail.com">beherasubham5432@gmail.com</a>
-        <span>Bengaluru, India</span>
-      </div>
-    </section>
-  </main>
-
-  <!-- Footer -->
-  <footer class="site-footer">
-    <a href="#home" class="logo">SB<span>.</span></a>
-    <span>© <span id="year"></span> Subham Behera · QA Automation Portfolio</span>
-    <a href="#home" class="back-top">Back to top ↑</a>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+      <p class="hero-desc">Specialized in building robust test automation
