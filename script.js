@@ -12,4 +12,10 @@ document.addEventListener("DOMContentLoaded", () => {
   if (defaultOpen) {
     defaultOpen.classList.add('active');
   }
+
+  // Auto-set current copyright year in footer
+  const yearSpan = document.getElementById('year');
+  if (yearSpan) {
+    yearSpan.textContent = new Date().getFullYear();
+  }
 });
