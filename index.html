@@ -7,171 +7,62 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
-</head>
-<body id="home">
+  <style>
+    :root {
+      --bg-primary: #0a0c14;
+      --bg-card: #131722;
+      --bg-card-hover: #1a2030;
+      --text-main: #f3f4f6;
+      --text-muted: #9ca3af;
+      --accent-primary: #8b5cf6;
+      --accent-secondary: #06b6d4;
+      --gradient: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
+      --border-color: rgba(255, 255, 255, 0.08);
+      --radius: 16px;
+    }
 
-  <!-- Header -->
-  <header class="site-header">
-    <div class="header-container">
-      <a aria-label="Subham Behera home" href="#home" class="logo">SB<span>.</span></a>
-      <nav class="nav-links">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#skills">Skills</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
+    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: var(--bg-primary);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-  <main>
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="hero-content">
-        <div class="badge animate-fade-down"><span></span> QA AUTOMATION ENGINEER · BENGALURU, INDIA</div>
-        <h1 class="animate-fade-up">Hi, I'm <span class="gradient-text">Subham Behera.</span></h1>
-        <h2 class="animate-fade-up delay-1">I build confidence in software through <em>quality engineering.</em></h2>
-        <p class="animate-fade-up delay-2">QA Engineer with 4.3 years of hands-on experience in UI and API automation, end-to-end testing, and CI/CD integration. Focused on creating maintainable automation that helps teams ship reliable software.</p>
-        
-        <div class="hero-cta animate-fade-up delay-3">
-          <a href="#projects" class="btn primary">Explore my work <span>↗</span></a>
-          <a href="#contact" class="btn secondary">Get in touch</a>
-        </div>
+    /* Header */
+    .site-header {
+      position: fixed; top: 0; left: 0; width: 100%;
+      background: rgba(10, 12, 20, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-color);
+      z-index: 1000;
+    }
+    .header-container {
+      max-width: 1200px; margin: 0 auto; padding: 1.25rem 2rem;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
+    .logo span { color: var(--accent-primary); }
+    .nav-links { display: flex; gap: 2rem; }
+    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
+    .nav-links a:hover { color: var(--accent-secondary); }
 
-        <div class="hero-stats animate-fade-up delay-4">
-          <div class="stat-card"><strong>4.3 years</strong><span>QA experience</span></div>
-          <div class="stat-card"><strong>UI + API</strong><span>Automation testing</span></div>
-          <div class="stat-card"><strong>CI/CD</strong><span>Continuous execution</span></div>
-        </div>
-      </div>
+    /* Hero Section */
+    .hero-section {
+      max-width: 1200px; margin: 0 auto; padding: 12rem 2rem 6rem;
+      text-align: center; display: flex; flex-direction: column; align-items: center;
+    }
+    .badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.1);
+      border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 50px;
+      font-size: 0.75rem; font-weight: 700; color: #c4b5fd; margin-bottom: 1.5rem;
+    }
+    .badge span { width: 8px; height: 8px; background: var(--accent-secondary); border-radius: 50%; animation: pulse 2s infinite; }
 
-      <!-- Animated Profile Photo Showcase -->
-      <div class="hero-visual animate-scale-in">
-        <div class="glow-backdrop"></div>
-        <div class="profile-card">
-          <div class="avatar-wrapper">
-            <img src="profile.jpg" alt="Subham Behera" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80'">
-            <div class="floating-badge badge-1">⚡ Playwright</div>
-            <div class="floating-badge badge-2">🚀 Automation</div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about-section">
-      <div class="section-tag">01 / ABOUT</div>
-      <div class="about-grid">
-        <div class="about-title">
-          <h2>Quality is built into<br><span class="gradient-text">every release.</span></h2>
-        </div>
-        <div class="about-desc">
-          <p>I'm a QA Engineer experienced in designing, implementing, and maintaining UI and API automation frameworks. My work combines Playwright with JavaScript, Selenium WebDriver with Java, and Cucumber BDD to validate real user journeys and backend integrations.</p>
-        </div>
-      </div>
-      <div class="pillars-grid">
-        <article class="pillar-card"><span>01</span><h3>Reliable automation</h3><p>Reusable test utilities, Page Object Model, fixtures, hooks, retries, and structured test data.</p></article>
-        <article class="pillar-card"><span>02</span><h3>End-to-end thinking</h3><p>UI workflows, REST API validation, session handling, and backend data verification.</p></article>
-        <article class="pillar-card"><span>03</span><h3>Team collaboration</h3><p>Agile planning, defect tracking, root cause analysis, and continuous feedback across releases.</p></article>
-      </div>
-    </section>
-
-    <!-- Experience Section (Click to Expand Accordion) -->
-    <section id="experience" class="experience-section">
-      <div class="section-tag">02 / EXPERIENCE</div>
-      <div class="section-header">
-        <h2>Where I've<br><span class="gradient-text">made an impact.</span></h2>
-        <p>Click the card below to expand details</p>
-      </div>
-      
-      <div class="accordion-card" id="expAccordion">
-        <div class="accordion-header" onclick="toggleAccordion('expAccordion')">
-          <div>
-            <span class="job-type">FULL-TIME</span>
-            <h3>QA Engineer — NIV-TECH SOLUTIONS PVT LTD</h3>
-            <p class="exp-date-sub">Dec 2021 — Mar 2026</p>
-          </div>
-          <span class="accordion-icon">+</span>
-        </div>
-        <div class="accordion-body">
-          <ul class="exp-bullets">
-            <li>Designed and maintained a Playwright automation framework in JavaScript for UI and API testing.</li>
-            <li>Automated end-to-end frontend workflows and validated backend integrations through REST API automation.</li>
-            <li>Used fixtures, hooks, workers, retries, and Page Object Model patterns to improve maintainability and execution reliability.</li>
-            <li>Handled OTP-based authentication, storage state, and session management for authenticated test flows.</li>
-            <li>Integrated automated suites with GitHub Actions and configured Allure reporting with screenshots and videos on failures.</li>
-            <li>Performed exploratory, functional, smoke, and regression testing; tracked defects in JIRA and collaborated with developers on resolution.</li>
-            <li>Contributed to Selenium WebDriver automation using Java and Cucumber BDD.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="skills-section">
-      <div class="section-tag">03 / SKILLS</div>
-      <div class="section-header">
-        <h2>Tools I use to<br><span class="gradient-text">test with purpose.</span></h2>
-        <p>A practical toolkit for modern QA and automation.</p>
-      </div>
-      <div class="skills-grid">
-        <article class="skill-card"><div class="skill-icon">⌘</div><h3>Automation</h3><div class="tags"><span>Playwright</span><span>Selenium WebDriver</span><span>Cucumber BDD</span><span>TestNG</span><span>POM</span></div></article>
-        <article class="skill-card"><div class="skill-icon">{ }</div><h3>Languages</h3><div class="tags"><span>JavaScript</span><span>Java</span><span>TypeScript</span></div></article>
-        <article class="skill-card"><div class="skill-icon">↔</div><h3>API & Data</h3><div class="tags"><span>REST API</span><span>Postman</span><span>Swagger</span><span>MongoDB</span></div></article>
-        <article class="skill-card"><div class="skill-icon">⚙</div><h3>CI/CD & Collaboration</h3><div class="tags"><span>GitHub Actions</span><span>Jenkins</span><span>Git</span><span>Bitbucket</span><span>JIRA</span></div></article>
-        <article class="skill-card"><div class="skill-icon">▤</div><h3>Reporting & Tools</h3><div class="tags"><span>Allure</span><span>HTML Reports</span><span>QASE</span><span>Notion</span><span>VS Code</span></div></article>
-        <article class="skill-card"><div class="skill-icon">✓</div><h3>Testing Practices</h3><div class="tags"><span>Functional</span><span>Regression</span><span>Smoke</span><span>Exploratory</span><span>Cross-browser</span></div></article>
-      </div>
-    </section>
-
-    <!-- Projects Section (Click to Expand Accordion Cards) -->
-    <section id="projects" class="projects-section">
-      <div class="section-tag">04 / SELECTED PROJECTS</div>
-      <div class="section-header">
-        <h2>Work shaped by<br><span class="gradient-text">real test scenarios.</span></h2>
-        <p>Click any project to view contributions</p>
-      </div>
-      
-      <div class="projects-grid">
-        <!-- Project 1 -->
-        <div class="accordion-card project-accordion" id="proj1">
-          <div class="accordion-header" onclick="toggleAccordion('proj1')">
-            <div>
-              <span class="project-cat">PROJECT 01 · FULLSTACK QA</span>
-              <h3>BambooBox</h3>
-            </div>
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body">
-            <p>AI-powered Account Based Marketing platform supporting B2B teams with predictive scoring and personalized engagement.</p>
-            <h4>My contribution</h4>
-            <ul>
-              <li>Automated CRM workflows with Playwright and validated integrated APIs.</li>
-              <li>Verified backend data and activity records using MongoDB queries.</li>
-              <li>Covered role-based scenarios and multi-user sessions with storage state and session isolation.</li>
-            </ul>
-            <div class="tech-tags"><span>Playwright</span><span>JavaScript</span><span>REST API</span><span>MongoDB</span></div>
-          </div>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="accordion-card project-accordion" id="proj2">
-          <div class="accordion-header" onclick="toggleAccordion('proj2')">
-            <div>
-              <span class="project-cat">PROJECT 02 · AUTOMATION ENGINEER</span>
-              <h3>Saltmine</h3>
-            </div>
-            <span class="accordion-icon">+</span>
-          </div>
-          <div class="accordion-body">
-            <p>Cloud-based workplace design and space optimization platform for workspace planning and configuration.</p>
-            <h4>My contribution</h4>
-            <ul>
-              <li>Built Selenium UI automation for workspace configuration workflows.</li>
-              <li>Implemented data-driven scenarios using TestNG and JSON test data.</li>
-              <li>Used Cucumber BDD and validated API payloads with Postman and Swagger.</li>
+    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
+    h2 { font-
+stman and Swagger.</li>
             </ul>
             <div class="tech-tags"><span>Selenium</span><span>Java</span><span>Cucumber</span><span>TestNG</span><span>Postman</span></div>
           </div>
