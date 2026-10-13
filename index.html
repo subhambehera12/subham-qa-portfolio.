@@ -736,4 +736,417 @@
         position: fixed;
         top: 60px;
         left: 0;
-        width: 
+        width: 100%;
+        background: rgba(8, 10, 17, 0.98);
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 1.25rem;
+        border-bottom: 1px solid var(--border-light);
+        z-index: 998;
+      }
+
+      .nav-menu.open {
+        display: flex;
+      }
+
+      .mobile-toggle {
+        display: block;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero-section {
+        padding: 3rem 0 2rem;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .site-footer {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="ambient-glow"></div>
+
+  <!-- Header -->
+  <header class="site-header">
+    <div class="nav-container">
+      <a href="#home" class="brand-logo">
+        Subham<span class="dot">.</span>
+      </a>
+
+      <nav class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#skills" class="nav-link">Skills</a>
+        <a href="#experience" class="nav-link">Experience</a>
+        <a href="#projects" class="nav-link">Projects</a>
+        <a href="#education" class="nav-link">Education</a>
+        <a href="#contact" class="btn-nav-cta">Get in Touch</a>
+      </nav>
+
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">☰</button>
+    </div>
+  </header>
+
+  <main id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="status-badge">
+        <span class="indicator"></span>
+        <span>OPEN FOR QA ENGINEER & SDET ROLES</span>
+      </div>
+
+      <h1 class="hero-title">
+        Delivering Resilient <br>
+        <span class="gradient-text">UI & API Automation</span> Frameworks
+      </h1>
+
+      <div class="hero-subtitle">
+        <span>Hi, I'm Subham Behera —</span>
+        <span class="typewriter-text" id="typewriter">QA Engineer</span>
+      </div>
+
+      <p class="hero-desc">
+        Experienced QA Engineer with 4.3 years of hands-on experience designing, implementing, and maintaining 
+        cutting-edge UI and API automation frameworks with Playwright (JavaScript), Selenium WebDriver (Java), 
+        Cucumber BDD, and GitHub Actions CI/CD pipelines.
+      </p>
+
+      <div class="hero-cta-group">
+        <a href="#contact" class="btn btn-primary">✉ Let's Talk</a>
+        <a href="#experience" class="btn btn-secondary">⚡ View Experience</a>
+      </div>
+
+      <!-- Stats Strip -->
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">4.3</div>
+          <div class="stat-label">Years Hands-on QA Exp</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2+</div>
+          <div class="stat-label">Enterprise Platforms</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">100%</div>
+          <div class="stat-label">E2E CI/CD Integration</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">NoSQL</div>
+          <div class="stat-label">MongoDB Data Validation</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+      <div class="section-header">
+        <span class="section-tag">01 / Technical Arsenal</span>
+        <h2 class="section-title">Verified Skills & Tools</h2>
+      </div>
+
+      <div class="skills-grid">
+        <!-- Automation Category -->
+        <div class="skill-category-card">
+          <div class="skill-icon-header">
+            <div class="icon-box">⚡</div>
+            <h3>Automation & Languages</h3>
+          </div>
+          <div class="pills-group">
+            <span class="skill-pill">Playwright</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">TypeScript</span>
+            <span class="skill-pill">Selenium WebDriver</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">Cucumber BDD</span>
+            <span class="skill-pill">Page Object Model (POM)</span>
+          </div>
+        </div>
+
+        <!-- API & Backend Category -->
+        <div class="skill-category-card">
+          <div class="skill-icon-header">
+            <div class="icon-box">🔌</div>
+            <h3>API & Database</h3>
+          </div>
+          <div class="pills-group">
+            <span class="skill-pill">Postman API</span>
+            <span class="skill-pill">Swagger</span>
+            <span class="skill-pill">Playwright Request Context</span>
+            <span class="skill-pill">REST API Testing</span>
+            <span class="skill-pill">MongoDB (Queries & Schema)</span>
+            <span class="skill-pill">JSON Data Management</span>
+          </div>
+        </div>
+
+        <!-- CI/CD, Reporting & Tools -->
+        <div class="skill-category-card">
+          <div class="skill-icon-header">
+            <div class="icon-box">🛠</div>
+            <h3>CI/CD, Reporting & Tools</h3>
+          </div>
+          <div class="pills-group">
+            <span class="skill-pill">GitHub Actions</span>
+            <span class="skill-pill">Jenkins</span>
+            <span class="skill-pill">GitHub / BitBucket</span>
+            <span class="skill-pill">Allure Reporting</span>
+            <span class="skill-pill">HTML Reports</span>
+            <span class="skill-pill">JIRA</span>
+            <span class="skill-pill">QASE / Notion</span>
+            <span class="skill-pill">VS Code / IntelliJ IDEA</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+      <div class="section-header">
+        <span class="section-tag">02 / Professional Experience</span>
+        <h2 class="section-title">Industry History</h2>
+      </div>
+
+      <div class="timeline-container">
+        <!-- Niv-Tech Experience -->
+        <div class="timeline-card active" id="exp1">
+          <div class="timeline-header" onclick="toggleAccordion('exp1')">
+            <div class="timeline-header-info">
+              <h3>QA Engineer — NIV-TECH SOLUTIONS PVT LTD</h3>
+              <div class="timeline-meta">
+                <span>🏢 Full-time Engineering</span>
+                <span>📍 Bangalore, India</span>
+                <span>📅 12/2021 — 03/2026</span>
+              </div>
+            </div>
+            <div class="chevron-icon">▼</div>
+          </div>
+          <div class="timeline-content">
+            <ul class="qa-points">
+              <li>Designed and developed scalable <strong>Playwright automation framework (JavaScript)</strong> from scratch for comprehensive UI and API testing.</li>
+              <li>Automated end-to-end frontend workflows using Playwright and validated microservices integrations through API automation via <strong>Playwright Request Context</strong>.</li>
+              <li>Handled <strong>OTP-based authentication, storage state, and session management</strong> for seamless authenticated test execution flows.</li>
+              <li>Utilized <strong>Playwright Test Runner, fixtures, hooks, and custom configurations</strong> for structured, modular test execution.</li>
+              <li>Enabled <strong>parallel test execution using workers</strong>, significantly reducing regression suite execution time, and implemented retry mechanisms to minimize flaky failures.</li>
+              <li>Implemented <strong>Page Object Model (POM)</strong> structure and managed dynamic test data using JSON-based configurations.</li>
+              <li>Contributed to frontend automation using <strong>Java Selenium with Cucumber BDD</strong>, enhancing test coverage and script stability.</li>
+              <li>Integrated automation suites with <strong>CI/CD pipelines (GitHub Actions)</strong> for continuous and scheduled executions.</li>
+              <li>Configured <strong>Allure Reporting</strong> with automated screenshot and video capture on test failures to enhance debugging efficiency and traceability.</li>
+              <li>Reported, tracked, and verified defects using <strong>JIRA</strong> while collaborating closely with developers in Agile sprints.</li>
+            </ul>
+            <div class="pills-group">
+              <span class="skill-pill">Playwright</span>
+              <span class="skill-pill">JavaScript</span>
+              <span class="skill-pill">Selenium</span>
+              <span class="skill-pill">Java</span>
+              <span class="skill-pill">Cucumber BDD</span>
+              <span class="skill-pill">GitHub Actions</span>
+              <span class="skill-pill">Allure</span>
+              <span class="skill-pill">MongoDB</span>
+              <span class="skill-pill">JIRA</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+      <div class="section-header">
+        <span class="section-tag">03 / Key Projects</span>
+        <h2 class="section-title">Enterprise Platforms Tested</h2>
+      </div>
+
+      <div class="projects-grid">
+        <!-- BambooBox Project -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">AI / ABM Platform</span>
+            </div>
+            <h3>BambooBox</h3>
+            <div class="project-role">Role: Fullstack QA</div>
+            <p>
+              An AI-powered Account Based Marketing (ABM) platform enabling B2B enterprises to drive predictable revenue through predictive scoring and personalized engagement.
+            </p>
+            <ul class="project-specs">
+              <li>Engineered automated test coverage for CRM workflows using Playwright (JavaScript) for UI and API validation.</li>
+              <li>Validated microservice backend integrations and schema verification using Playwright request handling and Postman.</li>
+              <li>Executed database verification using MongoDB queries to ensure accuracy of account intelligence and activity logs.</li>
+              <li>Automated role-based scenarios and multi-user flows using storage state management and session isolation.</li>
+              <li>Collaborated in Agile sprints, translating acceptance criteria into automated and manual validation strategies.</li>
+            </ul>
+          </div>
+          <div class="pills-group">
+            <span class="skill-pill">Playwright</span>
+            <span class="skill-pill">JavaScript</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">MongoDB</span>
+            <span class="skill-pill">GitHub Actions</span>
+          </div>
+        </div>
+
+        <!-- Saltmine Project -->
+        <div class="project-card">
+          <div>
+            <div class="project-top">
+              <span class="project-badge">Cloud Workplace Platform</span>
+            </div>
+            <h3>Saltmine</h3>
+            <div class="project-role">Role: Automation Engineer</div>
+            <p>
+              A cloud-based workplace design and space optimization platform tailored for modern enterprise office architectures.
+            </p>
+            <ul class="project-specs">
+              <li>Developed UI automation scripts using Selenium WebDriver with Java to validate interactive workspace configuration workflows.</li>
+              <li>Implemented data-driven testing using TestNG and external JSON data sources to validate multiple layout and resource allocation scenarios.</li>
+              <li>Strengthened regression coverage using Cucumber BDD framework, writing Gherkin feature files and step definitions.</li>
+              <li>Conducted API response validation and payload verification using Postman and Swagger across modules.</li>
+              <li>Participated in sprint planning and root cause analysis sessions to minimize production defects.</li>
+            </ul>
+          </div>
+          <div class="pills-group">
+            <span class="skill-pill">Selenium WebDriver</span>
+            <span class="skill-pill">Java</span>
+            <span class="skill-pill">Cucumber BDD</span>
+            <span class="skill-pill">TestNG</span>
+            <span class="skill-pill">Postman</span>
+            <span class="skill-pill">Swagger</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+      <div class="section-header">
+        <span class="section-tag">04 / Education</span>
+        <h2 class="section-title">Academic Credentials</h2>
+      </div>
+
+      <div class="edu-grid">
+        <div class="edu-card">
+          <div class="edu-badge">B.Tech</div>
+          <div class="edu-info">
+            <h4>Bachelor of Technology (B. Tech)</h4>
+            <p>Biju Patnaik University And Technology · Odisha</p>
+            <span>Graduated · 2017</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+      <div class="contact-box">
+        <span class="section-tag">05 / Contact</span>
+        <h2>Let's Connect & Collaborate</h2>
+        <p>
+          I'm actively open for QA Engineer and SDET opportunities. 
+          Feel free to connect directly via email or phone.
+        </p>
+
+        <a href="mailto:beherasubham5432@gmail.com" class="btn btn-primary" style="font-size: 1rem;">
+          ✉ Send Direct Email
+        </a>
+
+        <div class="contact-links-grid">
+          <a href="mailto:beherasubham5432@gmail.com" class="contact-card-btn">
+            ✉ beherasubham5432@gmail.com
+          </a>
+          <a href="tel:+917504179068" class="contact-card-btn">
+            📞 +91-7504179068
+          </a>
+          <a href="https://github.com/subhambehera12" target="_blank" class="contact-card-btn">
+            🐙 GitHub Profile
+          </a>
+          <span class="contact-card-btn">
+            📍 Bangalore, India
+          </span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div>
+      <span>© 2026 Subham Behera · QA Engineer</span>
+    </div>
+    <div>
+      <a href="#home" class="back-to-top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // 1. Mobile Menu Toggle
+    const mobileToggle = document.getElementById('mobileToggle');
+    const navMenu = document.getElementById('navMenu');
+    
+    if (mobileToggle && navMenu) {
+      mobileToggle.addEventListener('click', () => {
+        navMenu.classList.toggle('open');
+      });
+
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+          navMenu.classList.remove('open');
+        });
+      });
+    }
+
+    // 2. Typewriter Effect
+    const typewriterElement = document.getElementById('typewriter');
+    if (typewriterElement) {
+      const roles = [
+        "QA Engineer",
+        "Playwright Automation Specialist",
+        "API & Backend Test Engineer",
+        "SDET Practitioner"
+      ];
+      let rIdx = 0, cIdx = 0, deleting = false;
+
+      function type() {
+        const cur = roles[rIdx];
+        if (deleting) {
+          typewriterElement.textContent = cur.substring(0, cIdx - 1);
+          cIdx--;
+        } else {
+          typewriterElement.textContent = cur.substring(0, cIdx + 1);
+          cIdx++;
+        }
+
+        let speed = deleting ? 35 : 85;
+        if (!deleting && cIdx === cur.length) {
+          speed = 2000;
+          deleting = true;
+        } else if (deleting && cIdx === 0) {
+          deleting = false;
+          rIdx = (rIdx + 1) % roles.length;
+          speed = 400;
+        }
+        setTimeout(type, speed);
+      }
+      setTimeout(type, 600);
+    }
+
+    // 3. Accordion Handler
+    function toggleAccordion(id) {
+      const card = document.getElementById(id);
+      if (card) {
+        card.classList.toggle('active');
+      }
+    }
+  </script>
+</body>
+</html>
