@@ -7,93 +7,141 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg-primary: #0a0c14;
-      --bg-card: #131722;
-      --bg-card-hover: #1a2030;
-      --text-main: #f3f4f6;
-      --text-muted: #9ca3af;
-      --accent-primary: #8b5cf6;
-      --accent-secondary: #06b6d4;
-      --gradient: linear-gradient(135deg, #a855f7 0%, #06b6d4 100%);
-      --border-color: rgba(255, 255, 255, 0.08);
-      --radius: 16px;
-    }
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-    * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--bg-primary);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="header-container">
+      <a href="#home" class="logo">SB<span>.</span></a>
+      <nav class="nav-links">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
 
-    /* Header */
-    .site-header {
-      position: fixed; top: 0; left: 0; width: 100%;
-      background: rgba(10, 12, 20, 0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border-color);
-      z-index: 1000;
-    }
-    .header-container {
-      max-width: 1200px; margin: 0 auto; padding: 1.25rem 2rem;
-      display: flex; justify-content: space-between; align-items: center;
-    }
-    .logo { font-size: 1.5rem; font-weight: 800; color: var(--text-main); text-decoration: none; }
-    .logo span { color: var(--accent-primary); }
-    .nav-links { display: flex; gap: 2rem; }
-    .nav-links a { color: var(--text-muted); text-decoration: none; font-weight: 500; transition: color 0.3s; }
-    .nav-links a:hover { color: var(--accent-secondary); }
+  <main id="home">
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="badge"><span></span> AVAILABLE FOR QA / SDET ROLES</div>
+      <h1>Hi, I'm <span class="gradient-text">Subham Behera</span></h1>
+      <h2>QA Automation Engineer</h2>
+      <p class="hero-desc">Specialized in building robust test automation frameworks, API validation suites, and continuous testing pipelines for modern web applications.</p>
+      <div class="btn-group">
+        <a href="#contact" class="btn primary">Get in touch ↗</a>
+      </div>
+    </section>
 
-    /* Hero Section */
-    .hero-section {
-      max-width: 1200px; margin: 0 auto; padding: 12rem 2rem 6rem;
-      text-align: center; display: flex; flex-direction: column; align-items: center;
-    }
-    .badge {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      padding: 0.5rem 1rem; background: rgba(139, 92, 246, 0.1);
-      border: 1px solid rgba(139, 92, 246, 0.3); border-radius: 50px;
-      font-size: 0.75rem; font-weight: 700; color: #c4b5fd; margin-bottom: 1.5rem;
-    }
-    .badge span { width: 8px; height: 8px; background: var(--accent-secondary); border-radius: 50%; animation: pulse 2s infinite; }
+    <!-- Experience Section (Accordion) -->
+    <section id="experience" class="accordion-section">
+      <div class="section-tag">01 / WORK EXPERIENCE</div>
+      <h2>Hands-on Industry Impact</h2>
 
-    h1 { font-size: clamp(2.8rem, 6vw, 4.5rem); font-weight: 800; line-height: 1.1; margin-bottom: 1rem; }
-    h2 { font-
-stman and Swagger.</li>
-            </ul>
-            <div class="tech-tags"><span>Selenium</span><span>Java</span><span>Cucumber</span><span>TestNG</span><span>Postman</span></div>
+      <!-- Accordion Item 1 (Auto-opened by script.js) -->
+      <div id="expAccordion" class="accordion-card">
+        <div class="accordion-header" onclick="toggleAccordion('expAccordion')">
+          <div>
+            <h3>Senior QA Automation Engineer</h3>
+            <p class="role-company">Quality Engineering & Framework Architecture</p>
+          </div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <ul class="exp-list">
+            <li>Architected scalable hybrid & BDD test automation suites utilizing <strong>Java, Selenium, Cucumber,</strong> and <strong>TestNG</strong>.</li>
+            <li>Implemented automated REST API validation layers with <strong>Postman</strong> and <strong>REST Assured</strong>, cutting regression cycle times significantly.</li>
+            <li>Integrated automated test triggers into <strong>CI/CD build pipelines (Jenkins / GitHub Actions)</strong> for early defect discovery.</li>
+            <li>Collaborated closely with cross-functional development teams to define test plans, acceptance criteria, and defect tracking metrics.</li>
+          </ul>
+          <div class="tech-tags">
+            <span>Selenium</span>
+            <span>Java</span>
+            <span>Cucumber</span>
+            <span>TestNG</span>
+            <span>Postman</span>
+            <span>REST Assured</span>
+            <span>Git</span>
+            <span>CI/CD</span>
           </div>
         </div>
       </div>
-      <p class="project-note" style="margin-top: 2rem;">Client systems and repositories may be private. Detailed test artifacts can be shared where permitted.</p>
+
+      <!-- Accordion Item 2 -->
+      <div id="qaPracticesAccordion" class="accordion-card">
+        <div class="accordion-header" onclick="toggleAccordion('qaPracticesAccordion')">
+          <div>
+            <h3>Testing Methodologies & Tooling</h3>
+            <p class="role-company">Functional, API & Automation Coverage</p>
+          </div>
+          <span class="arrow">▼</span>
+        </div>
+        <div class="accordion-content">
+          <ul class="exp-list">
+            <li>End-to-end regression, smoke, and integration test strategy design.</li>
+            <li>API schema validation, response assertion, and contract verification via Swagger & Postman collections.</li>
+            <li>Agile sprint participation, sprint grooming, and JIRA defect life-cycle management.</li>
+          </ul>
+          <div class="tech-tags">
+            <span>Agile/Scrum</span>
+            <span>JIRA</span>
+            <span>Swagger</span>
+            <span>Regression Testing</span>
+            <span>Defect Tracking</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+      <div class="section-tag">02 / FEATURED PROJECTS</div>
+      <h2>Automation Suites & Frameworks</h2>
+      <div class="project-card">
+        <h3>E-Commerce Core Automation Suite</h3>
+        <p class="project-desc">A complete end-to-end regression automation suite simulating critical user checkout workflows, catalog browsing, and payment gateway responses.</p>
+        <ul class="project-list">
+          <li>Page Object Model (POM) architecture implemented with explicit waits and thread-safe driver management.</li>
+          <li>Data-driven test executions powered by Apache POI and TestNG parameterization.</li>
+          <li>Rich HTML regression execution reports with automatic screenshot capture on failure.</li>
+        </ul>
+        <div class="tech-tags">
+          <span>Java</span>
+          <span>Selenium WebDriver</span>
+          <span>TestNG</span>
+          <span>Maven</span>
+          <span>ExtentReports</span>
+        </div>
+      </div>
+      <p class="project-note">* Client systems and repositories may be private. Detailed test plans, sanitised artifacts, and test logs can be shared upon request.</p>
     </section>
 
     <!-- Education Section -->
-    <section class="education-section">
-      <div class="section-tag">05 / EDUCATION</div>
+    <section id="education" class="education-section">
+      <div class="section-tag">03 / EDUCATION</div>
       <div class="edu-card">
         <div class="edu-badge">B.Tech</div>
         <div>
           <h3>Bachelor of Technology</h3>
-          <p>Biju Patnaik University of Technology · Odisha</p>
-          <span class="edu-year">2017</span>
+          <p class="edu-institution">Biju Patnaik University of Technology · Odisha</p>
+          <span class="edu-year">Graduated: 2017</span>
         </div>
       </div>
     </section>
 
     <!-- Contact Section -->
     <section id="contact" class="contact-section">
-      <div class="section-tag">06 / CONTACT</div>
+      <div class="section-tag">04 / CONTACT</div>
       <p class="contact-sub">HAVE A ROLE OR PROJECT IN MIND?</p>
       <h2>Let's make quality<br><span class="gradient-text">part of the process.</span></h2>
-      <p class="contact-desc">I'm happy to connect about QA automation, test engineering, and new opportunities.</p>
+      <p class="contact-desc">I'm happy to connect about QA automation, SDET engineering, and test strategy opportunities.</p>
       <a href="mailto:beherasubham5432@gmail.com" class="btn primary contact-btn">Email me <span>↗</span></a>
       <div class="contact-info">
         <a href="mailto:beherasubham5432@gmail.com">beherasubham5432@gmail.com</a>
-        <span> Bengaluru, India</span>
+        <span>Bengaluru, India</span>
       </div>
     </section>
   </main>
@@ -101,20 +149,10 @@ stman and Swagger.</li>
   <!-- Footer -->
   <footer class="site-footer">
     <a href="#home" class="logo">SB<span>.</span></a>
-    <span>Designed with care · © Subham Behera</span>
+    <span>© <span id="year"></span> Subham Behera · QA Automation Portfolio</span>
     <a href="#home" class="back-top">Back to top ↑</a>
   </footer>
 
-  <script src="script.js"></script>
-</body>
-</html>
-tunities.</p>
-      <a class="button button-primary" href="mailto:beherasubham5432@gmail.com">Email me <span>↗</span></a>
-      <div class="contact-details"><a href="mailto:beherasubham5432@gmail.com">beherasubham5432@gmail.com</a><span>Bengaluru, India</span></div>
-    </section>
-  </main>
-
-  <footer class="site-footer"><a class="brand" href="#home">SB<span>.</span></a><span>Designed with care · © <span id="year"></span> Subham Behera</span><a href="#home">Back to top ↑</a></footer>
   <script src="script.js"></script>
 </body>
 </html>
